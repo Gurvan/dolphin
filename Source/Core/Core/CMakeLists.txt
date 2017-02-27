@@ -387,3 +387,7 @@ endif()
 if(UNIX)
   target_sources(core PRIVATE MemoryWatcher.cpp)
 endif()
+
+if(ZMQ_FOUND)
+  target_link_libraries(core PRIVATE ${ZMQ_LIBRARIES})
+endif()
