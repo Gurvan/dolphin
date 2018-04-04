@@ -89,7 +89,7 @@ bool MemoryWatcher::OpenSocket(const std::string& path)
     return false;
   }
 
-  if(!(m_socket = zmq_socket(m_context, ZMQ_REQ)))
+  if(!(m_socket = zmq_socket(m_context, ZMQ_PUSH)))
   {
     std::cout << "Failed to create zmq socket: " << ZMQErrorString() << std::endl;
     return false;
@@ -147,9 +147,5 @@ void MemoryWatcher::Step()
   sendto(m_fd, message.c_str(), message.size() + 1, 0, reinterpret_cast<sockaddr*>(&m_addr), sizeof(m_addr));
 #else
   zmq_send(m_socket, message.c_str(), message.size(), 0);
-
-  // do something with the reply?
-  char buffer[10];
-  zmq_recv(m_socket, buffer, 10, 0);
 #endif
 }
