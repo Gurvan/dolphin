@@ -101,6 +101,7 @@ add_library(core
   HW/EXI/EXI_DeviceAGP.cpp
   HW/EXI/EXI_DeviceDummy.cpp
   HW/EXI/EXI_DeviceEthernet.cpp
+  HW/EXI/EXI_DeviceFrameAdvance.cpp
   HW/EXI/EXI_DeviceGecko.cpp
   HW/EXI/EXI_DeviceIPL.cpp
   HW/EXI/EXI_DeviceMemoryCard.cpp

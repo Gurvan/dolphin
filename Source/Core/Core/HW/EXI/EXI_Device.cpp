@@ -5,6 +5,7 @@
 #include "Core/HW/EXI/EXI_Device.h"
 
 #include <memory>
+#include <iostream>
 
 #include "Common/CommonTypes.h"
 #include "Core/HW/EXI/EXI_DeviceAD16.h"
@@ -15,6 +16,7 @@
 #include "Core/HW/EXI/EXI_DeviceIPL.h"
 #include "Core/HW/EXI/EXI_DeviceMemoryCard.h"
 #include "Core/HW/EXI/EXI_DeviceMic.h"
+#include "Core/HW/EXI/EXI_DeviceFrameAdvance.h"
 #include "Core/HW/Memmap.h"
 
 namespace ExpansionInterface
@@ -141,6 +143,11 @@ std::unique_ptr<IEXIDevice> EXIDevice_Create(const TEXIDevices device_type, cons
 
   case EXIDEVICE_AGP:
     result = std::make_unique<CEXIAgp>(channel_num);
+    break;
+
+  case EXIDEVICE_FRAME_ADVANCE:
+    std::cout << "Creating EXI FrameAdvance device\n";
+    result = std::make_unique<CEXIFrameAdvance>();
     break;
 
   case EXIDEVICE_AM_BASEBOARD:
