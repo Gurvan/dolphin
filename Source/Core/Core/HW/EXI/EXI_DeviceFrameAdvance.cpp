@@ -3,6 +3,7 @@
 // Refer to the license.txt file included.
 
 #include "Core/HW/EXI/EXI_DeviceFrameAdvance.h"
+#include "Core/HW/SI/SI.h"
 
 #include<iostream>
 
@@ -19,6 +20,7 @@ void CEXIFrameAdvance::DMAWrite(u32 address, u32 size) {
 void CEXIFrameAdvance::DMARead(u32 address, u32 size) {
   //std::cout << "DMARead(" << address << ", " << size << ")\n";
   memory_watcher.Step();
+  SerialInterface::UpdateDevices();
 }
 
 bool CEXIFrameAdvance::IsPresent() const {return true;}
