@@ -76,7 +76,7 @@ endif()
 if(UNIX)
   # Builds a relocatable binary on Linux.
   # The Sys folder will need to be copied to the Binaries folder.
-  option(LINUX_LOCAL_DEV "Enable relocatable binary" OFF)
+  option(LINUX_LOCAL_DEV "Enable relocatable binary" ON)
 endif()
 
 list(APPEND CMAKE_MODULE_PATH
